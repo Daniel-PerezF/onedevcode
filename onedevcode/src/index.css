@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.underline-center-outward {
+  position: relative;
+  display: inline-block; 
+}
+
+.underline-center-outward::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0;
+  left: 50%;
+  background-color: currentColor;
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.underline-center-outward:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.neon-text {
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0, 0 0 90px #0f0, 0 0 100px #0f0, 0 0 150px #0f0;
+  font-size: 3em;
+}
+.gradient-border-button {
+  background: #fff;
+  border: double 4px transparent;
+  border-radius: 10px;
+  background-image: linear-gradient(#fff, #fff), radial-gradient(circle at top left, #ff0057, #b600e0);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  padding: 0.5em 1em;
+  font-size: 1em;
+}
+
+.three-d-text {
+  color: #fff;
+  font-size: 3em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #000, 2px 2px 0 #000, 3px 3px 0 #000, 4px 4px 0 #000, 5px 5px 0 #000;
+}
+
+.animated-gradient-bg {
+  height: 100vh;
+  background: linear-gradient(270deg, #ff7e5f, white);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.glass-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2em;
+  width: 300px;
+  color: #fff;
+}
+.typewriter {
+  font-family: monospace;
+  display: inline-block;
+  overflow: hidden;
+  border-right: .15em solid #000;
+  white-space: nowrap;
+  margin: 0 auto;
+  animation: typing 3.5s steps(40, end), blink .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+.image-hover-zoom {
+  overflow: hidden;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.image-hover-zoom:hover img {
+  transform: scale(1.2);
+}
+
+.loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes blob {
+  0%, 100% {
+    border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+  }
+  50% {
+    border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%;
+  }
+}
+
+.blob {
+  width: 200px;
+  height: 200px;
+  background: #ff6b81;
+  animation: blob 5s infinite;
+}
+.animated-gradient-text {
+  font-size: 3em;
+  background: linear-gradient(270deg, black, red, blue);
+  background-size: 200% 200%;
+  animation: gradientTextAnimation 5s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientTextAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.pulse-hover {
+  display: inline-block;
+  position: relative;
+  padding: 1em 2em;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pulse-hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s ease-out;
+}
+
+.pulse-hover:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+.slide-under {
+  position: relative;
+  display: inline-block;
+  padding: 1em 2em;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.slide-under::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #c0392b;
+  transition: transform 0.3s ease;
+  transform: translateY(-100%);
+}
+
+.slide-under:hover::before {
+  transform: translateY(0);
+}
